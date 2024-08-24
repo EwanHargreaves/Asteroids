@@ -17,8 +17,10 @@ class CircleShape(pygame.sprite.Sprite):
         white = (255,255,255)
         pygame.draw.polygon(screen,white,self.triangle(),width=2)
 
-        pass
 
     def update(self, dt):
         # sub-classes must override
+        pass
+    
+    def collide(self, other_circle):
         pass
