@@ -34,10 +34,15 @@ def main():
         for item in updatable:
             item.update(dt)
         for item in asteroids:
-            collision = item.collide(player)
-            if collision == True:
+            if item.collide(player):
                 print("Game over!")
                 return
+
+            for bullet in shots:
+                if item.collide(bullet):
+                    item.kill()
+                    bullet.kill()
+                    break
         for item in drawable:
             item.draw(screen)
         
@@ -47,7 +52,6 @@ def main():
         
         dt = clock.tick(60) / 1000
         pygame.display.flip()
-        
 
 if __name__ == "__main__":
     main()
